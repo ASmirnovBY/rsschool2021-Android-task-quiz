@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity(), QuestionFragment.QuestionAction {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        loadFragmentWithId(id)
     }
 
     private fun loadFragmentWithId(id: Int) {
