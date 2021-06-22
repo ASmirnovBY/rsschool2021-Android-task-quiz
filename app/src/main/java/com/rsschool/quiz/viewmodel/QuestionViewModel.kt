@@ -1,6 +1,7 @@
 package com.rsschool.quiz.viewmodel
 
 import com.rsschool.quiz.model.QuestionException
+import com.rsschool.quiz.model.entity.Answer
 import com.rsschool.quiz.model.entity.Question
 import com.rsschool.quiz.repository.QuestionRepository
 import com.rsschool.quiz.repository.SingltonQuestionRepository
@@ -15,23 +16,26 @@ class QuestionViewModel {
         *Maybe need to create class Service (QuestionRepository)
         */
         repository = SingltonQuestionRepository()
+        answers = Answer()
     }
 
-    fun nextQuestion(): Question {
+    fun currentQuestion(): Question = repository.getAll()[currentQuestion]
+
+    fun nextQuestion() {
        if (!isLast()) {
            ++currentQuestion
-           return repository.getAll()[currentQuestion]
        } else throw QuestionException("This was last question")
     }
 
-    fun prevQuestion(): Question {
+    fun prevQuestion() {
         if (!isFirst()) {
             --currentQuestion
-            return repository.getAll()[currentQuestion]
         } else throw QuestionException("This was first question")
     }
 
-    fun saveAnswer(answer: String) {}
+    fun saveAnswer(id: Int, answer: String) {
+        //TODO Relize save method
+    }
 
     fun questionSize(): Int = repository.getAll().size
 
@@ -40,6 +44,6 @@ class QuestionViewModel {
     }
 
     private fun isLast(): Boolean {
-        return (questionSize() == (currentQuestion - 1))
+        return (currentQuestion == (questionSize() - 1))
     }
 }
