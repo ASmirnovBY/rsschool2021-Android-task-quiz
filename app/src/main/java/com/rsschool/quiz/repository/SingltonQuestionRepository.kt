@@ -27,7 +27,7 @@ class SingltonQuestionRepository : QuestionRepository {
     }
 
     override fun findById(id: Int): Question {
-        return questions[id - 1]
+        return questions[id]
     }
 
     private fun initialQuestion(): List<Question> {
