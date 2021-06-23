@@ -1,6 +1,6 @@
 package com.rsschool.quiz.viewmodel
 
-import com.rsschool.quiz.model.QuestionException
+import com.rsschool.quiz.model.exception.QuestionException
 import com.rsschool.quiz.model.entity.Answer
 import com.rsschool.quiz.model.entity.Question
 import com.rsschool.quiz.repository.QuestionRepository

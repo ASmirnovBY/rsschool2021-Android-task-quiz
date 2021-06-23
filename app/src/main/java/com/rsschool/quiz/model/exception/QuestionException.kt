@@ -1,4 +1,4 @@
-package com.rsschool.quiz.model
+package com.rsschool.quiz.model.exception
 
 class QuestionException : Exception {
     constructor(message: String?) : super(message)

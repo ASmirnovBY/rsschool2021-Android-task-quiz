@@ -7,4 +7,6 @@ interface IQuestionView {
     fun nextQuestion()
     fun prevQuestion()
     fun printError(message: String?)
+    fun bindingAnswers(answers: Array<String>?)
+    fun buildAnswer()
 }
